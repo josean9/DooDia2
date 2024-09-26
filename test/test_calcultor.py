@@ -10,6 +10,7 @@ class TestMyCalculator(unittest.TestCase):
         self.calc.add(1, 3)
         # Comprobamos si el valor es el que esperamos
         self.assertEqual(4, self.calc.value)
+        
 
 
 if __name__ == '__main__':

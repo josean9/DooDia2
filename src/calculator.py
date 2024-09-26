@@ -4,4 +4,4 @@ class Calculator:
         self.value = 0
     def add(self, a, b):
         self.value = a + b
-        
+    def multiply
