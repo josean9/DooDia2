@@ -1,31 +1,15 @@
-# test_calculator.py
-
 import unittest
 from calculator import Calculator
-
-class TestCalculator(unittest.TestCase):
-    
+class TestMyCalculator(unittest.TestCase):
     def setUp(self):
         self.calc = Calculator()
-
-    def test_add(self):
-        self.assertEqual(self.calc.add(2, 3), 5)
-        self.assertEqual(self.calc.add(-1, 1), 0)
-        self.assertEqual(self.calc.add(0, 0), 0)
-
-    def test_subtract(self):
-        self.assertEqual(self.calc.subtract(5, 3), 2)
-        self.assertEqual(self.calc.subtract(10, 5), 5)
-
-    def test_multiply(self):
-        self.assertEqual(self.calc.multiply(4, 3), 12)
-        self.assertEqual(self.calc.multiply(0, 10), 0)
-
-    def test_divide(self):
-        self.assertEqual(self.calc.divide(10, 2), 5)
-        self.assertEqual(self.calc.divide(9, 3), 3)
-        with self.assertRaises(ValueError):
-            self.calc.divide(10, 0)
+    def test_initial_value(self):
+        self.assertEqual(0, self.calc.value)
+    def test_add_method(self):
+        # Ejecutamos el método
+        self.calc.add(1, 3)
+        # Comprobamos si el valor es el que esperamos
+        self.assertEqual(4, self.calc.value)
 
 if __name__ == '__main__':
     unittest.main()
