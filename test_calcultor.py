@@ -11,5 +11,6 @@ class TestMyCalculator(unittest.TestCase):
         # Comprobamos si el valor es el que esperamos
         self.assertEqual(4, self.calc.value)
 
+
 if __name__ == '__main__':
     unittest.main()
