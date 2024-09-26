@@ -31,9 +31,6 @@ class TestCalculator(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.calc.factorial(-1)  # Factorial negativo debe lanzar error
 
-if __name__ == '__main__':
-    unittest.main()
-
 
 
 if __name__ == '__main__':
