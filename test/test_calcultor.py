@@ -1,5 +1,13 @@
 import unittest
-from src.calculator import Calculator
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+
+from calculator import Calculator
+
+
+import unittest
+import math
 
 class TestCalculator(unittest.TestCase):
     
@@ -31,7 +39,30 @@ class TestCalculator(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.calc.factorial(-1)  # Factorial negativo debe lanzar error
 
+    def test_power(self):
+        self.assertEqual(self.calc.power(2, 3), 8)
+        self.assertEqual(self.calc.power(5, 0), 1)
 
+    def test_sqrt(self):
+        self.assertEqual(self.calc.sqrt(16), 4)
+        self.assertEqual(self.calc.sqrt(0), 0)
+        with self.assertRaises(ValueError):
+            self.calc.sqrt(-1)
 
-if __name__ == '__main__':
-    unittest.main()
+    def test_log(self):
+        self.assertAlmostEqual(self.calc.log(math.e), 1)
+        self.assertAlmostEqual(self.calc.log(100, 10), 2)
+        with self.assertRaises(ValueError):
+            self.calc.log(0)  # Logaritmo de 0 debe lanzar error
+        with self.assertRaises(ValueError):
+            self.calc.log(-10)  # Logaritmo de un número negativo debe lanzar error
+
+    def test_trigonometric(self):
+        self.assertAlmostEqual(self.calc.sin(math.pi / 2), 1)
+        self.assertAlmostEqual(self.calc.cos(math.pi), -1)
+        self.assertAlmostEqual(self.calc.tan(math.pi / 4), 1)
+
+    def test_exp(self):
+        self.assertAlmostEqual(self.calc.exp(1), math.e)
+        self.assertAlmostEqual(self.calc.exp(0), 1)
+
